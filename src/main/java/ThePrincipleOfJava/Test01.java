@@ -1,6 +1,6 @@
 package ThePrincipleOfJava;
 
-public class test01 {
+public class Test01 {
 	public static void main(String[] args) {
 		byte b=1;
 		short s = 2;

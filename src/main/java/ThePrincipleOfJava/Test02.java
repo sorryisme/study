@@ -1,6 +1,6 @@
 package ThePrincipleOfJava;
 
-public class test02 {
+public class Test02 {
 	public static void main(String[] args) {
 		char ch ='A';
 		int code = (int)ch;
