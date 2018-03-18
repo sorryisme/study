@@ -1,4 +1,4 @@
-package ThePrincipleOfJava;
+package ThePrincipleOfJava.ch2_ch3;
 
 public class Test02 {
 	public static void main(String[] args) {
