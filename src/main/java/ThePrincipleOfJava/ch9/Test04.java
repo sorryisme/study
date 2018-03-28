@@ -20,6 +20,11 @@ class Card {
         this.kind = kind;
         this.number = number;
     }
+
+    
+    public String toString() {
+        return "kind :" + kind + " ,number :" + number;
+    }
     
     
 }
