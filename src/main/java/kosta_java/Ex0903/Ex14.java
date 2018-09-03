@@ -1,4 +1,4 @@
-package kosta_java;
+package kosta_java.Ex0903;
 
 public class Ex14 {
     public static void main(String[] args) {
