@@ -3,29 +3,29 @@ package kosta_java;
 import java.util.Scanner;
 
 public class Ex11 {
-public static void main(String[] args) {
-        
+    public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         Grade grade = new Grade();
 
+        // grade.sum(30,20,10);
+        // private 접근제한자를 가지고 있어서 사용불가
+
         System.out.print("국어점수를 입력해주세요");
-        int kor = sc.nextInt();
+        int kor = Integer.parseInt(sc.nextLine());
 
         System.out.print("영어점수를 입력해주세요");
-        int eng= sc.nextInt();
-        
+        int eng= Integer.parseInt(sc.nextLine());
+
         System.out.print("수학점수를 입력해주세요");
-        int math= sc.nextInt();
-        
-        System.out.print("이름을 입력해주세요");
-        String name = sc.next();
+        int math= Integer.parseInt(sc.nextLine());
+
+        System.out.println("이름을 입력해주세요");
+        String name = sc.nextLine();
         // nextLine <=> next 차이 확인하기
-        
+
         grade.print(name,kor,eng,math);
 
-
-        
-        
     }
 }
 
@@ -41,14 +41,14 @@ class Grade{
     // 개별적으로 계산한 뒤 print에서 일괄 출력
 
     private String grade(double avg){
-        String result;
+        String result="";
         switch((int)(avg/10)){
-            case 10:
-            case 9: result="A";break;
-            case 8: result="B";break;
-            case 7: result="C";break;
-            case 6: result="D";break;
-            default : result="F";
+        case 10:
+        case 9: result="A";break;
+        case 8: result="B";break;
+        case 7: result="C";break;
+        case 6: result="D";break;
+        default : result="F";
         }
         return result;
     }

@@ -1,10 +1,8 @@
 package kosta_java;
 
-import java.rmi.server.Operation;
 import java.util.Scanner;
 
 public class Ex10 {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("첫번째 숫자를 입력하세요");
@@ -17,12 +15,16 @@ public class Ex10 {
         String c = sc.next();
 
         Ex10.methodOper(a,b,c);
-        //methodOper(a,b,c);
+        //methodOper(a,b,c); => static static끼리 호출이 가능
         //this.methodOper(a,b,c);
         //차이 공부하기
+        //static 없다면 
+        //Operation op = new Operation();
+        //op.methodOper(a,b,c);
     }
-    
-     public static void methodOper(int i, int j, String str){
+
+    public static void methodOper(int i, int j, String str){
+        // 만약 static이 없다면 객체를 생성해서 처리
         switch(str){
         case "+": System.out.println(i + "+" + j + "=" + (i+j));break;
         case "-": System.out.println(i + "-" + j + "=" + (i-j));break;
@@ -32,5 +34,6 @@ public class Ex10 {
         default: System.out.println("잘못되었습니다");
         }
     }
-    
+
+
 }
