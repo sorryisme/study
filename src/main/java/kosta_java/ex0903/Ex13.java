@@ -1,4 +1,4 @@
-package kosta_java.Ex0903;
+package kosta_java.ex0903;
 
 public class Ex13 {
     //각int,double,char,boolean ,String type별로 총 5개씩 저장하는  배열을 생성하세요

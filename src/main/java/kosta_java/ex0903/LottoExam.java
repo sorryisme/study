@@ -1,4 +1,4 @@
-package kosta_java.Ex0903;
+package kosta_java.ex0903;
 
 
 /**
