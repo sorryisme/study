@@ -36,5 +36,18 @@ public class Problem031 {
         
         System.out.println('\u0001');
         System.out.println('\1');
+        System.out.println('\u0015');
+        System.out.println('\25');
+        
+        for(int i=0; i<=39; i++) {
+            System.out.println("[" +(char)('\25'+i)+"]");
+            if((i+1)%10 == 0) {
+                System.out.println();
+            }
+        }
+        
+        System.out.println();
+        
+        
     }
 }
