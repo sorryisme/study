@@ -1,6 +1,6 @@
 package java100_Problem;
 
-public class Problem19 {
+public class Problem019 {
     public static void main(String[] args) {
         String strApiTest = "Hello! Nice to meet you";
         strApiTest += "\nThank you very much";
