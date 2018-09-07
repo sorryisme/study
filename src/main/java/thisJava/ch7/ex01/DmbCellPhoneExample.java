@@ -1,4 +1,4 @@
-package thisJava.ch7;
+package thisJava.ch7.ex01;
 
 public class DmbCellPhoneExample {
     public static void main(String[] args) {

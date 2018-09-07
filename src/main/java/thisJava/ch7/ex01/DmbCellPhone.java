@@ -1,4 +1,4 @@
-package thisJava.ch7;
+package thisJava.ch7.ex01;
 
 public class DmbCellPhone extends CellPhone{
     int channel;
