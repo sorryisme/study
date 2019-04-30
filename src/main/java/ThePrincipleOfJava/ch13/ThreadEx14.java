@@ -1,4 +1,4 @@
-package ThePrinciopleOfJava.ch13;
+package ThePrincipleOfJava.ch13;
 
 import javax.swing.JOptionPane;
 

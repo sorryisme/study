@@ -1,4 +1,4 @@
-package ThePrinciopleOfJava.ch13;
+package ThePrincipleOfJava.ch13;
 
 public class ThreadEx9 {
     public static void main(String[] args) throws Exception{

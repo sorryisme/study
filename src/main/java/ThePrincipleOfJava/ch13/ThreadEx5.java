@@ -1,4 +1,4 @@
-package ThePrinciopleOfJava.ch13;
+package ThePrincipleOfJava.ch13;
 
 public class ThreadEx5 {
     static long startTime = 0;
