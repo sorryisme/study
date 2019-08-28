@@ -19,12 +19,15 @@ public class StringCalculatorTest2 {
         System.out.println("setUp");
     }
     
-    @Test
+    @Test(expected=ArithmeticException.class)
     public void add() {
+        
         assertEquals(5, strCal.add("2,3"));
         assertEquals(5, strCal.add("2:3"));
         assertEquals(0, strCal.add(""));
         assertEquals(14, strCal.add("6,5:3"));
+        assertEquals(6, strCal.add("//;\n1;2;3"));
+        assertEquals(-1, strCal.add("-13"));
     }
 
     @After
