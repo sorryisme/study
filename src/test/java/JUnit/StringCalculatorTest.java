@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CalculatorTest {
+public class StringCalculatorTest {
     
     private StringCalculator strCal;
 //  private Calculator cal = new Calculator();
