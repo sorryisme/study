@@ -73,5 +73,29 @@ stream.forEach( name -> System.out.println(name));
   studentList.stream().mapToInt(Student::getScore).average().getAsDouble();
   ```
 
-  
+## 스트림의 종류
+- BaseStream - 모든 스트림에서 사용하는 인터페이스
+- Stream, IntStream, LongStream, DobuleStream이 BaseStream을 상속받음
+  - Collection으로부터 스트림 얻기
+    - studentList.Stream();
+  - 배열로 부터 스트림 얻기
+    - Arrays.stream(strArray);
+
+## 스트림 파이프라인
+- 대량의 데이터를 가공해서 축소하는 것을 리덕션
+- 합계, 평균, 카운팅, 최대값, 최소값이 리덕션의 결과물
+- 집계하기 좋도록 필터링, 매핑, 정렬, 그룹핑 등의 중간처리 필요
+
+### 중간처리와 최종 처리
+- 파이프라인은 여러개의 스트림이 연결되어 있는 구조를 말한다
+- 최종 처리 제외한 모두 중간 처리
+
+#### 필터링
+- 요소를 걸러내는 역할
+- distinct() : 중복제거 
+- Filter(Predicate) : 조건에 맞게 필터링
+
+#### 매핑
+ - 다른 요소로 대체하는 작업
+ - flatMapXXX() : 요소를 대체하는 구성된 새로운 스트림으로 리턴
 
