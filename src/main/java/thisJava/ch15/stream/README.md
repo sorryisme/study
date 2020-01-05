@@ -96,6 +96,14 @@ stream.forEach( name -> System.out.println(name));
 - Filter(Predicate) : 조건에 맞게 필터링
 
 #### 매핑
- - 다른 요소로 대체하는 작업
- - flatMapXXX() : 요소를 대체하는 구성된 새로운 스트림으로 리턴
+
+- 다른 요소로 대체하는 작업
+- flatMapXXX() : 요소를 대체하는 복수 개의 요소들로 구성된 새로운 스트림으로 리턴
+- mapXXX : 요소를 대체하는 요소로 구성된 새로운 스트림으로 리턴
+- asDoubleStream(), asLongStream() : 각각 요소로 타입 변환하여 스트림을 생성
+- boxed() : int,long,double 요소를 Integer, Long, Double 요소로 박싱해서 stream 생성
+
+#### 정렬
+
+- 클래스가 Comparable 구현하지 않으면 sorted() 호출 시 Exception이 발생
 
