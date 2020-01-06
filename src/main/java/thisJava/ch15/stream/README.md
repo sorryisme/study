@@ -73,7 +73,11 @@ stream.forEach( name -> System.out.println(name));
   studentList.stream().mapToInt(Student::getScore).average().getAsDouble();
   ```
 
+
+
+
 ## 스트림의 종류
+
 - BaseStream - 모든 스트림에서 사용하는 인터페이스
 - Stream, IntStream, LongStream, DobuleStream이 BaseStream을 상속받음
   - Collection으로부터 스트림 얻기
@@ -82,15 +86,22 @@ stream.forEach( name -> System.out.println(name));
     - Arrays.stream(strArray);
 
 ## 스트림 파이프라인
+
 - 대량의 데이터를 가공해서 축소하는 것을 리덕션
 - 합계, 평균, 카운팅, 최대값, 최소값이 리덕션의 결과물
 - 집계하기 좋도록 필터링, 매핑, 정렬, 그룹핑 등의 중간처리 필요
 
+
+
 ### 중간처리와 최종 처리
+
 - 파이프라인은 여러개의 스트림이 연결되어 있는 구조를 말한다
 - 최종 처리 제외한 모두 중간 처리
 
-#### 필터링
+
+
+####    필터링
+
 - 요소를 걸러내는 역할
 - distinct() : 중복제거 
 - Filter(Predicate) : 조건에 맞게 필터링
@@ -105,5 +116,60 @@ stream.forEach( name -> System.out.println(name));
 
 #### 정렬
 
+- sorted() : 중간 단계에서 요소를 정렬 
 - 클래스가 Comparable 구현하지 않으면 sorted() 호출 시 Exception이 발생
+
+#### 루핑
+
+- 요소 전체를 반복하는 것
+
+- peek : 중간처리 메소드
+
+  ```
+  inStream.filter(a-> a%2 == 0).peek(a -> System.out.println(a)) 
+  => 에러(최종처리 메소드로 호출되면 에러발생)
+  ```
+
+  
+
+- forEach : 최종처리 메소드
+
+#### 매칭
+
+- 최종 처리 단계에서 특정 조건에 만족할 수 있는지 조사하는 메소드
+
+- allMatch :  모든 요소들이 매개값으로 주어진 Predicate 만족하는지
+- anyMatch: 최소 한 개의 요소가 만족하는지
+- noneMatch : 조건을 만족하지 않는지 조사
+
+#### 기본 집계
+
+- 대량의 데이터를 가공해서 축소하는 리덕션이라 볼 수 있다
+- sum,count,average, max,min 제공
+- 집계 메소드에서 리턴하는 OptionalXXX는 값을 저장하는 값 기반 클래스이다.
+
+
+
+### Optional
+
+- 집계값이 존재하지 않을 경우 디폴트 값 설정할 수 있음
+- 집계 값을 처리하는 Consumer 등록가능
+- 메소드
+  - isPresent() : 값이 저장했는지 확인
+  - orElse : 값이 저장되어 있지 않는 경우 디폴트 값 지정
+  - ifPresent : 값이 저장되어 있지 않는 경우 Consumer에서 처리
+
+```
+List<Integer> list = new ArrayList<>();
+double avg = list.stream()
+                .mapToInt(Integer :: intValue)
+                .average()
+                .getAsDouble();
+```
+
+- 요소가 없으면 NoSucheElementException 예외발생
+  - 해결방안(Optional 클래스)
+    - isPresent() 메소드로 확인
+    - orElse() 디폴트 값 지정
+    - ifPresent()일 경우 람다식 실행
 
