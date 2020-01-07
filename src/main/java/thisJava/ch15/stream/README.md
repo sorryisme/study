@@ -169,7 +169,45 @@ double avg = list.stream()
 
 - 요소가 없으면 NoSucheElementException 예외발생
   - 해결방안(Optional 클래스)
-    - isPresent() 메소드로 확인
-    - orElse() 디폴트 값 지정
-    - ifPresent()일 경우 람다식 실행
+  - isPresent() 메소드로 확인
+  - orElse() 디폴트 값 지정
+  - ifPresent()일 경우 람다식 실행
+
+#### 커스텀 집계
+
+- reduce() : 다양한 집계 결과물을 만들 수 있도록 메소드 제공
+
+  ```
+  int sum = studentList.stream().map(Student:: getScore).reduce((a,b)->a+b).get()
+  ```
+
+  - 값이 없을 경우 default값을 설정하여 처리할 수 있다
+
+
+
+#### 수집
+
+- collect() : 필요한 요소만 컬렉션으로 담아 요소들을 그룹핑한 후 집계가능
+
+  - 매개값인 Collector는 어떤 컬렉션을 수집할 지 결정한다
+
+  - 파라미터 T : 요소, A :누적기, R: 결과
+
+  - Map은 쓰레드에 안전하지 않고 ConCurrentMap은 스레드에 안전
+
+  - 예시코드1, 2
+
+    ```java
+    Stream<Student> totalStream = totalList.Stream();
+    Stream<Student> maleStream = totalStream.filter(s->s.getSex() == Student.Sex.Male);
+    Collector<Student, ? ,List<Student>> collector = Collectors.toList();
+    List<Student> maleList = maleStream.collector(collector);
+    ```
+
+    ```
+    List<Student> maleList = totalList.stream().filter(s->s.getSex() == Student.Sex.MALE).collect(Collectors.toList());
+    ```
+
+    
+
 
