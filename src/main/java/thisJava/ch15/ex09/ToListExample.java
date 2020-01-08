@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import thisJava.ch15.ex10.Student;
+
 public class ToListExample {
     public static void main(String[] args) {
         List<Student> totalList = Arrays.asList(

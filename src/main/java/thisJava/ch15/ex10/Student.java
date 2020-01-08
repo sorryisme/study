@@ -1,4 +1,4 @@
-package thisJava.ch15.ex09;
+package thisJava.ch15.ex10;
 
 public class Student {
     public enum Sex {MALE, FEMALE}
