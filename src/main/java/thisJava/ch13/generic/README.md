@@ -108,3 +108,34 @@ Box<Integer> box = boxing(100);
 
 
 
+## 제한된 타입 파라미터 [<T extends 최상위 타입>]
+
+- 구체적인 타입을 제한할 필요
+
+  예: Number 타입 또는 하위 타입 인스턴스만 가져야할 때 
+
+- 타입 파라미터 뒤에 extends 키워드를 붙이고 상위 타입 파라미터를 명시
+
+  ```java
+  public <T extends 상위타입> 리턴타입 메소드(매개변수...){ ... }
+  ```
+
+  
+
+- 메소드 중괄호 타입 파라미터 변수로 사용한 것은 상위 타입의 멤버(필드, 메소드)로 제한
+
+  ```java
+  public <T extends Number> int compare(T t1, T t2){
+    double v1 = t1.doubleValue();
+    double v2 = t2.doubleValue();
+    return Double.compare(v1, v2);
+  }
+  ```
+
+
+
+## 와일드 카드 타입 [ <?> , <? extends ...>, <? super..>]
+
+- <?> : 제한 없음 
+- <? extends 상위타입> : 상위클래스 제한
+- <? super 하위타입 > 하위 클래스 제한
