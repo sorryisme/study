@@ -139,3 +139,14 @@ Box<Integer> box = boxing(100);
 - <?> : 제한 없음 
 - <? extends 상위타입> : 상위클래스 제한
 - <? super 하위타입 > 하위 클래스 제한
+
+## 제네릭 타입의 상속과 구현
+
+- 제네릭 타입도 부모클래스가 될 수 있다.
+
+- 자식 제네릭 타입은 추가적으로 타입 파라미터를 가질 수 있다.
+
+  ```java
+  public class ChildProduct<T, M, C> extends Product<T, M> { ... }
+  ```
+
