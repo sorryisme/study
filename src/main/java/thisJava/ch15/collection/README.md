@@ -2,6 +2,8 @@
 
 널리 알려져있는 자료구조를 바탕으로 객체를 효율적으로 사용할 수 있도록 모아둔 것이 컬렉션 프레임워크
 
+
+
 ## List
 
 - 순서를 유지하고 저장
@@ -82,3 +84,51 @@
 
 - 동일한 키가 될 조건은 hashCode의 리턴값이 같아야하고 eqauls 메소드가 true 리턴해야한다.
 - 기본 타입은 사용할 수 없음
+
+### HashTable
+
+- HashMap과 차이는 synchorinized 여부이다.
+
+### Properties
+
+- Hashtable의 하위 클래스 이기 때문에 Hashtable의 특징을 그대로 가지고 있다.
+
+- key와 value가 String 타입으로 제한된 컬렉션
+
+- 저장된 프로퍼티 파일을 읽을 때 주로 사용
+
+  ```java
+  Properties properties = new Properties();
+  properties.load(new FileReader("C:/~/database.properties"));
+  ```
+
+
+
+------------------
+
+
+
+# 검색기능을 강화시킨 컬렉션
+
+검색 기능을 강화시키는 TreeSet과 TreeMap을 제공하며 이진 트리(binary tree)를 이용해 계층적 구조를 가지며 객체를 저장한다
+
+
+
+## 이진 트리 구조
+
+- 여러개 노드가 트리 형태로 연결된 구조
+- 루트에서 시작하여 최대 2개 노드를 연결할 수 있는 구조
+- 이진트리는 부모 노드의 값보다 작은 노드는 왼쪽에 위치, 부모 노드보다 큰 값은 오른쪽에 위치 시킴
+- 이로 인해 **범위 검색이 쉬움**
+
+### TreeSet
+
+- 이진 트리 기반 set 컬렉션
+- left | value | right 로 구성되어 좌 우 자식 노드를 참조한다
+
+
+
+
+
+
+
