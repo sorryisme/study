@@ -24,7 +24,9 @@ public class TreeSetExample {
         
         score = scores.higher(new Integer(75));
         System.out.println("75 위 점수 " + score);
-                    
+        
+//        scores.stream().forEach( s -> System.out.println(s));
+        scores.descendingSet().stream().forEach(s -> System.out.println(s));     
         
     }
 }

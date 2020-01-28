@@ -124,9 +124,28 @@
 ### TreeSet
 
 - 이진 트리 기반 set 컬렉션
+
 - left | value | right 로 구성되어 좌 우 자식 노드를 참조한다
 
+- 만약 내림차순으로 정렬하고 싶다면 desndingIterator 또는 descendingSet() 메소드를 호출하자
 
+- 범위 검색 
+
+  | 리턴타입        | 메소드  | 설명                                                         |
+  | --------------- | ------- | ------------------------------------------------------------ |
+  | NavigableSet<E> | headSet | 주어진 객체보다 낮은 객체 리턴                               |
+  | NavigableSet<E> | tailSet | 주어진 객체보다 높은 객체 리턴                               |
+  | NavigableSet<E> | subSet  | 시작과 끝으로 주어진 객체 사이 객체 리턴, 객체포함 boolean 인자 |
+
+
+
+### TreeMap
+
+- 이진트리 기반 Map 컬렉션
+- TreeSet과 달리 키와 값이 저장된 Map.Entry를 저장
+- left | < key , value> | right 형태로 저장
+- Map 대신 TreeMap을 사용하는 이유는 특정 객체를 찾거나 **범위 검색과 관련된 메소드를 찾는데 용이하다**
+- 내림차순 및 범위검색은 TreeSet과 동일하므로 생략
 
 
 
