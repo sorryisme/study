@@ -149,5 +149,29 @@
 
 
 
+### Comparable과 Comparator
+
+- TreeSet과 TreeMap의 키는 저장과 동시에 자동으로 오름차순으로 정렬
+- 숫자타입의 경우 값으로 정렬, 문자열 타입일 경우 유니코드로 정렬
+- 사용자 정의 클래스도 Comparable 구현하면 자동 정렬이 가능하다
+
+### Comparable
+
+- Comparable에는 compareTo() 메소드가 정의되어 있어서 메소드를 오버라이딩해서 리턴값을 만들어야한다
+- compareTo(T o) : 같으면 0, 주어진 객체보다 적으면 음수, 주어진 객체보다 크면 양수
+- Comparable 비구현 객체를 넣을 경우 에러가 발생한다.
 
 
+
+### Comparator 
+
+- TreeSet과 TreeMap 생성자의 매개값으로 정렬자를 제공하면 Comparable 비구현 객체도 정렬 가능
+
+  ```java
+  TreeSet<E> treeSet = new TreeSet<E>( new AscendingCompartor());
+  TreeMap<K,V> treeMap = new TreeMap<K,V>( new DesendingComparotor());
+  ```
+
+- Comparator 인터페이스에 compare 메소드가 정의되어 있다.
+
+- compare(T o1, T o2) : o1이 o2보다 앞에 오게하려면 음수 , o1이 o2보다 뒤에 오게하려면 양수
