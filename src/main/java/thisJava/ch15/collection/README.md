@@ -175,3 +175,28 @@
 - Comparator 인터페이스에 compare 메소드가 정의되어 있다.
 
 - compare(T o1, T o2) : o1이 o2보다 앞에 오게하려면 음수 , o1이 o2보다 뒤에 오게하려면 양수
+
+
+
+## LIFO와 FIFO
+
+- LIFO : Last In First Out - 스택 구조
+- FIFO : First In First Out - Queue
+- 스택구조의 예 : JVM 스택 메모리
+- Queue 응용 : 스레드 풀의 작업 큐
+
+
+
+## 동기화 된 컬렉션
+
+- 컬렉션 프레임 워크는 싱글 스레드 환경에서 사용 할 수 있도록 설계
+- 여러 스레드가 동시에 컬렉션 접근 시 요소가 변경 ㅅ; 요소가 변경된다.
+- Vector, Hashtable : 동기화 된 메소드로 구성
+- ArrayList, HashSet, HashMap : 멀티 스레드 환경에서 불안정
+- 메소드를 동기화된 메소드로 래핑하는 SynchronizedXXX 메소드 제공
+- 동기화된 컬렉션은 안전하게 처리 되도록 도와주지면 빠르게 처리가 느림 
+  - 병렬적 처리가 힘듬
+  - 이에 대한 해결책으로 다음과 같은 컬렉션 제공
+    - ConcurrentHashMap , ConcurrentLinkedQueue
+    - ConcurrentMap : 부분 잠금을 통해 나머지 부분은 스레드가 변경할 수 있도록 구현
+    - ConcurrentLinkedQueue : 락-프리 알고리즘 구현 
