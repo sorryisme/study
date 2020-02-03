@@ -17,7 +17,7 @@
 
   1)  read 메소드 :  1바이트를 읽고 4바이트 int 타입으로 리턴
 
-  - int 4바이트 중에 가장 끝 1바이트에만 데이터가 들어가 있다.
+  - int 4바이트 중에 가장 끝 1바이트에만 데이터가 들어가 있다.\
   - 더 이상 입력 스트림으로부터 바이트를 읽을 수 없다면 read() 메소드는 -1을 리턴
 
   ```java
@@ -67,8 +67,48 @@
 
   4) flush 메소드 : 버퍼에 잔류하고 있는 모든 데이터를 출력 시킨다
 
-  
+### Reader
+
+- 문자 기반 스트림의 최상위 추상클래스, 문자 기반 스트림은 이 클래스를 상속받아 처리한다
+
+  1) read() : 한개의 문자를 읽고 리턴
+
+  - 한 개의 문자(2바이트)를 읽고 4바이트 int를 리턴
+
+  - 끝 2byte만 사용
+
+    ```java
+    Reader reader = new FileReader("C:/test.txt");
+    int readDate;
+    while((readDate = reader.read()) != -1 ){
+        char charDate = (char) readData;
+    }
+    ```
+
+    
+
+  2) read(char[] cbuf) : 읽은 문자를 문자배열 인자 배열길이만큼 저장, 읽은 갯수를 리턴
+
+  - read() 메소드는 100개의 문자가 들어오면 100번 루프를 돌아야함으로 좋지 않다.
+
+- read(char[] cbuf, int off, int len) : off부터 len까지 저장
+
+
+
+### Writer
+
+- 문자 기반 출력 스트림의 최상 추상클래스
+
+  1) write(int c) : int 값에서 끝에 있는 2바이트만 출력 스트림으로 보낸다.
+
+  ```java
+  Writer writer = new FileWriter("C:/test.txt");
+  char[] data = "홍길동".toCharArray();
+  for(int i=0; i<data.length; i++){
+    writer.write(data[i]); // 홍, 길, 동 
+  }
+  ```
 
   
 
-  
+​   
