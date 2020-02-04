@@ -109,6 +109,70 @@
   }
   ```
 
-  
+  2) write(char[] cbuf) : 매개값으로 주어진 char[] 배열의 모든 문자를 출력 스트림으로 보낸다
 
-​   
+  ```java
+  char[] data = "홍길동"toCharArray();
+  write.write(data);
+  ```
+
+  3) write(char[] c, int off, int len) 메소드
+
+  c[off]부터 len개의 문자를 출력스트림으로 보낸다
+
+  4) write(String str), write(String str, int off, int len)
+
+  문자열을 쉽게 전달하기 위해 String을 stream을 통해 출력한다
+
+### 콘솔 입출력
+
+- 시스템을 사용하기 위해 키보드로 입력받고 화면으로 출력하는 소프트웨어
+- 키보드로 입력 받을 시 System.in  / 화면에 출력 시 System.out / 시스템 에러발생시 System.err
+
+#### System.in 필드
+
+- System.in은 InputStream 타입 
+
+  ```java
+  InputStream is = System.in
+  ```
+
+- 바이트에는 십진수 아스키코드가 들어있다
+
+  ```java
+  int asciiCode = is.Read()
+  ```
+
+  read메소드로 읽은 아스키코드를 Char타입으로 변환하면 확인 가능하다
+
+- read() 메소드는 1바이트라 한글을 읽을 수 없다. 우선 read(byte[] b)를 통해 입력받아서 처리하면 된다.
+
+- 대신 읽은 바이트 수 - 2를 해줘야한다(Enter키에 해당하는 것 제외)
+
+#### System.out 필드
+
+- PrinStream 타입 필드
+
+  ```java
+  OutputStream os = System.out;
+  ```
+
+- 한글을 출력하기 위해 한글을 바이트 배열로 얻은 후 write 메소드를 통해 출력하면 된다
+
+### Console 클래스
+
+- 자바 6부터 콘솔로 문자을 쉽게 받기 위해 클래스를 제공한다
+- 반드시 프롬프트에서 실행해야한다
+- readLine, readPassword 등을 제공한다
+
+
+
+### Scanner
+
+- 콘솔로는 문자열을 읽을 수 있지만 정수, 실수를 받을 수 없으므로 Scanner를 통해 입력받는다
+
+  ```java
+  Scanner scanner = new Scanner(System.in);
+  ```
+
+  
