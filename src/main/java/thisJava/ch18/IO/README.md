@@ -175,4 +175,27 @@
   Scanner scanner = new Scanner(System.in);
   ```
 
-  
+
+
+## 파일 입출력
+
+- 파일의 크기, 파일 속성, 파일 이름 등의 정보를 얻어내는 기능과 파일 생성 및 파일 삭제 기능제공
+
+- 윈도우는 / 또는 \를 사용할 수 있고 유닉스,리눅스에서는 /를 사용한다(File.separator 상수를 출력해보면 확인가능)
+
+- 만약 \를 디렉토리 구분자로 사용한다면 이스케이스(\\\\)로 기술
+
+- 실제 파일이나 디렉토리 있는지 여부는 exists로 확인
+
+  - exist = false
+
+    | 리턴타입 | 메소드        | 설명                           |
+    | -------- | ------------- | ------------------------------ |
+    | boolean  | createNewFile | 새로운 파일을 생성             |
+    | boolean  | mkdir         | 새로운 디렉토리 생성           |
+    | boolean  | mkdirs        | 경로에 없는 모든 디렉토리 생성 |
+    | boolean  | delete        | 파일 또는 디렉토리삭제         |
+
+  - exist = true
+
+    - 메소드 종류가 많아서 생략 [링크](http://blog.naver.com/PostView.nhn?blogId=saseo90&logNo=221267786511&redirect=Dlog&widgetTypeCall=true&directAccess=false)
