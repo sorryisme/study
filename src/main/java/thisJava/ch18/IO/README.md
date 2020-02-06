@@ -177,6 +177,7 @@
 
 
 
+
 ## 파일 입출력
 
 - 파일의 크기, 파일 속성, 파일 이름 등의 정보를 얻어내는 기능과 파일 생성 및 파일 삭제 기능제공
@@ -199,3 +200,35 @@
   - exist = true
 
     - 메소드 종류가 많아서 생략 [링크](http://blog.naver.com/PostView.nhn?blogId=saseo90&logNo=221267786511&redirect=Dlog&widgetTypeCall=true&directAccess=false)
+
+### File InputStream
+
+- 파일을 바이트 단위로 읽어 들일 때 사용하는 바이트 기반 입력 스트림이다.
+
+  ```
+  1. FileInputStream fis = new FileInputStream("C:/Temp/image.gif");
+  
+  2. File file = new File("C:/Temp/image.gif");
+  FileInputStream fis = new FileInputStream(file);
+  ```
+
+- 사용 후 close 메소드를 호출해야함
+
+
+
+### File OutputStream
+
+- 바이트 단위로 데이터를 파일에 저장할 때 사용하는 바이트 기반 출력 스트림
+
+  ```
+  1. FileOutputStream fos = new FileOutputStream("C:/Temp/image.gif");
+  
+  2. File file = new File("C:/Temp/image.gif");
+  FileOutputStream fos = new FileOutputStream(file);
+  ```
+
+- 파일이 이미 존재할 경우 파일을 덮어 쓰며 기존 파일 내용은 사라진다. 기존 파일 내용 끝에 추가할 경우 매개값 true를 추가해준다
+
+- close 전에 flush를 호출해서 잔류한 데이터를 완전히 출력하도록 한다
+
+  
