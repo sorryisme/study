@@ -232,3 +232,47 @@
 - close 전에 flush를 호출해서 잔류한 데이터를 완전히 출력하도록 한다
 
   
+
+### FileReader, FileWriter
+
+- 문자 기반 스트림, 문자 단위로 읽기 때문에 텍스트가 아닌 **그림, 오디오, 비디오 등의 파일은 읽을 수 없다.** 
+
+## 보조스트림
+
+- 다른 스트림과 연결되어 여러가지 편리한 기능을 제공한다
+- 보조 스트림은 다른 보조 스트림에 연결되어 스트림 체인을 구성 할 수 있다.
+
+
+
+### 문자 변환 보조 스트림
+
+- 소스 스트림이 바이트 기반 스트림(Input,Output, FileInput, FileOutput)이면서 입출력이 문자라면 Reader와 Writer로 변환해서 사용하는 것이 좋음
+  - 문자 단위 입출력, 문자셋의 종류를 지정
+
+### InputStreamReader,OutputStreamReader
+
+- 바이트 입력 스트림에 연결되어 문자 입력 스트림으로 변환
+
+  ```
+  1. InputStream is = System.in;
+  Reader reader = new InputerStreamReader(is);
+  
+  2. FileInputStream fis = new FileInputStream("C:/Temp/file.txt");
+  Reader reader = new InputStreamReader(fis);
+  ```
+
+- OutputStreamReader 또한 동일하게 사용하면 됨
+
+
+
+### 성능 향상 보조스트림
+
+- 프로그램 실행 성능은 입출력이 가장 늦은 장치를 따라간다
+
+- 프로그램이 입출력 소스와 직접 작업하지 않고 메모리 버퍼와 작업함으로써 실행 성능을 향상 시키게 된다.
+- 버퍼는 데이터 쌓이기를 기다렸다가 꽉 차게 되면 데이터를 한꺼번에 디스크로 보냄으로써 출력횟수를 줄여준다.
+
+### BufferedInputStream, BufferedReader
+
+- 보조 스트림은 8192 내부 버퍼 사이즈를 가지게된다
+
