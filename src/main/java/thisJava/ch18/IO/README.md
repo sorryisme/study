@@ -275,4 +275,43 @@
 ### BufferedInputStream, BufferedReader
 
 - 보조 스트림은 8192 내부 버퍼 사이즈를 가지게된다
+- BufferedReader는 ReaderLine이 있는데 Enter키 입력전까지 받아 올 수 있다.
+
+### DataInputStream, DataOutputStream
+
+- 바이트 스트림은 바이트 단위 입출력이기 때문에 기본 데이터 타입을 입출력이 가능한 Data스트림을 사용한다
+
+### 객체 입출력 보조 스트림
+
+- 자바는 메모리에 생성된 객체를 파일 또는 네트워크로 출력할 수 있음
+
+  - 객체는 문자가 아님, 바이트 기반 스트림 출력
+  - 객체의 데이터를 연속적인 바이트로 변경해야함 이를 객체 직렬화
+  - 반대로 입력 스트림부터 읽어들인 연속적인 바이트를 객체로 복원하는 것을 역직렬화
+
+  ```
+  ObjectInputStream ois = new ObjectInputStream(바이트 입력 스트림);
+  ObjectOutputSTream oos = new ObjectOutputStream(바이트 입출력 스트림);
+  ```
+
+  - ObjectOutputStrem을 객체로 직렬화 하기 위해서 writeObject() 메소드 사용
+  - 반대로 역직렬화하기 위해서 다음과 같이 처리
+
+  ```
+  객체타입 변수 = (객체타입) obj.readObject();
+  ```
+
+
+
+### 직렬화가 가능한 클래스
+
+- 자바는 Serializable 인터페이스 구현한 클래스만 직렬화할 수 있도록 제한
+
+```
+public class implements Serializable {}
+```
+
+- static, transient가 붙은 경우 직렬화되지 않는다.
+
+
 
