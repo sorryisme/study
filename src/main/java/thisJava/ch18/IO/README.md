@@ -311,7 +311,91 @@
 public class implements Serializable {}
 ```
 
-- static, transient가 붙은 경우 직렬화되지 않는다.
+- static, transient가 붙은 경우 직렬화되지 않는다
+
+
+
+#### serialVersionUID
+
+- 직렬화 된 객체를 역직렬화 할 때 같은 클래스 사용
+- 클래스 내용이 변경되면 역직렬화 실패
+- 불가피하게 클래스 수정이 필요하면 클래스 작성시 serialVersionUID를 선언해야한다
+- /bin/serialver.exe로 serialVersionUID를 생성해준다
+
+#### 부모 자식 직렬화
+
+- 부모클래스가 Serializable일 경우 자식 클래스를 직렬화하면 둘 다 직렬화 된다.
+
+- 자식은 Serializable이고 부모는 구현하지 않았을 경우 부모는 직렬화하지 않는다
+
+- 해결방법은 두 가지
+
+  - 부모 클래스가 Serializable를 구현
+  - 자식클래스에서 writeOjbect와 readObject 메소드를 선언해 부모 객체를 직접 출력
+  - 접근 제한자가 private가 아니면 자동 호출되지 않기 때문에 반드시 private 접근자 작성
+
+  
+
+# 네트워크
+
+
+### IP 주소얻기
+
+- IP를 InetAdres객체로 표현
+
+- 로컬 컴퓨터의 InetAddress를 얻고 싶다면 다음과 같이 호출
+
+  ```
+  InetAddress ia = InetAddress.getLocalHost();
+  ```
+
+- 외부 컴퓨터의 도메인 이름을 알고 있다면 객체를 얻을 수 있음
+
+  ```
+  InetAddress ia = InetAddress.getByName(String host);
+  InetAddress[] iaArr = InetAddress.getAllByName(String host);
+  ```
+
+  - InetAddress 객체에서 IP주소를 얻기 위해서 getHostAddress() 메소드를 호출하면 된다.
+
+
+
+### TCP 네트워킹
+
+- Transmission Control Protocol : 연결지향적 프로토콜
+- 클라이언트 연결 요청, 연결 수락, 통신 선로 고정, 데이터 교환 순으로 진행됨
+
+### ServerSocket, Socket
+
+- 연결 요청과 연결 수락을 담당
+- 클라이언트 연결 요청을 기다리면서 연결 수락을 담당하는 것이 ServerScoket 클래스
+- 연결된 클라이언트와 통신을 담당하는것이 Socket 클래스
+
+### ServerSocket 생성과 연결수락
+
+ - ServerSocket 객체를 얻는 방법
+
+   ```
+   1. ServerSocket serverSocket = new ServerSocket(5001);
+   
+   2. ServerSocket serverSocket = new ServerSocket();
+   serverSocket.bind(new InetSocketAddress(5001));
+   ```
+
+   - 만약 머특정 IP로 작성하고 싶다면 포트 앞에 아이피를 인자로 하나 더 넘겨주면 된다.
+     - ex:) new InetSocketAddress("192.xxx.xx.xxx, 5001);
+
+- 클라이언트 연결수락을 위해서 accept 실행
+
+- 연결된 클라이언트의 IP와 포트 정보를 알고 싶다면 Socket.getRemoteSocketAddress() 메소드 호출
+
+  ```
+  InetSocketAddress socketAddress = (InetScoketAddress) socket.getRemoteSocketAddress();
+  ```
+
+- 더 이상 연결 수락이 필요없으면 ServerScoket의 close 메소드를 호출할 것
+
+
 
 
 
