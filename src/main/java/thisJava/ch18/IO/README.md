@@ -397,5 +397,28 @@ public class implements Serializable {}
 
 
 
+### Socket 데이터 통신
 
+- 클라이언트가 요청, 서버가 수락 했으면 각각 입력,출력 스트림을 얻을 수 있다.
+
+  ```
+  InputStream is = socket.getInputStream();
+  OutputStream os = socket.getOutputStream();
+  ```
+
+- 상대방에게 데이터 보내기 위해서 byte[] 배열을 생성 후 write로를 호출하여 전달한다
+
+  ```
+  os.write(byteArr);
+  os.flush();
+  ```
+
+- 데이터를 받기 위해서는 바이트 배열을 생성 후 read를 호출한다
+
+  ```
+  int readByteCount = is.read(byteArr);
+  String data = new String(byteArr, 0, readByteCount, "UTF-8");
+  ```
+
+  
 
