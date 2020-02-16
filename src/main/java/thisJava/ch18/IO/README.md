@@ -339,6 +339,7 @@ public class implements Serializable {}
 # 네트워크
 
 
+
 ### IP 주소얻기
 
 - IP를 InetAdres객체로 표현
@@ -421,4 +422,10 @@ public class implements Serializable {}
   ```
 
   
+
+### 스레드 병렬처리
+
+- ServerSocket과 Socket은 동기방식으로 구현된다.
+- Connect, read, write는 별도의 스레드로 생성해서 병렬처리하는 것이 좋다
+- 클라이언트의 폭증으로 과도한 스레드 생성을 방지하려면 스레드 풀을 사용해야한다
 
